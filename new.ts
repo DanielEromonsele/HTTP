@@ -1,27 +1,28 @@
 import http, {IncomingMessage, ServerResponse} from "http";
 import fs from "fs";
+import os from 'os'
 import path from "path";
 
 
 const port: number =  5000
 
-// const DataSet = [
-//     {
-//         id: "1",
-//         name: "Daniel Okwudili",
-//         stack: "Half Stack"
-//     },
-//     {
-//         id: "2",
-//         name: "jemima Udoka",
-//         stack: "Entry Level"
-//     },
-//     {
-//         id: "3",
-//         name: "Sean Etang",
-//         stack: "Full Stack"
-//     },
-// ]; 
+const DataSet = [
+    {
+        id: "1",
+        name: "Daniel Okwudili",
+        stack: "Half Stack"
+    },
+    {
+        id: "2",
+        name: "jemima Udoka",
+        stack: "Entry Level"
+    },
+    {
+        id: "3",
+        name: "Sean Etang",
+        stack: "Full Stack"
+    },
+]; 
 
 const server = http.createServer((req: IncomingMessage, res: ServerResponse<IncomingMessage>) => {
     // res.writeHead(200);
@@ -30,6 +31,13 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse<Inco
     // if (req.url === "/" && req.method === "GET" && res.statusCode === 200) {
     //     res.setHeader("Content-Type", "application/json");
     //     res.write(JSON.stringify(DataSet));
+    //     res.end();
+    // }
+    // if (req.url === "/" && req.method === "POST" && res.statusCode === 200) {
+    //     res.setHeader("Content-Type", "application/json");
+    //     const addHere = {id: "1", name: "Michael", stack: 'fullstack'}
+    //     const addAll = DataSet.push(addHere)
+    //     res.write(JSON.stringify(addAll));
     //     res.end();
     // }
 
