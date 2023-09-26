@@ -5,10 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev --respawn --transpile-only ./index3.ts",
+    "start": "ts-node-dev --respawn --transpile-only ./HttpAdvanced.ts",
     "dev": "node New.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.5"
+  }
 }
