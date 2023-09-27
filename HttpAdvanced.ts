@@ -3,7 +3,7 @@ import http, { ServerResponse, IncomingMessage } from "http";
 import path from "path";
 import fs from "fs";
 
-const Port = 3400;
+const port = 3400;
 
 interface IMessage {
   message: string;
@@ -99,6 +99,6 @@ const Server = http.createServer(
   }
 );
 
-Server.listen(Port, () => {
-  console.log("Server is running on port", Port);
+Server.listen(port, () => {
+  console.log(`server listening on port ${port}`);
 });
