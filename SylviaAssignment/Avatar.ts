@@ -20,11 +20,11 @@ let {method, url} = req
         data : null
     }
 
-    let Base = ""
+    let Container = ""
 req.on("data", (chunk)=>{
- Base+=chunk
+ Container +=chunk
 })
-req.on('end',async()=>{
+req.on("end",async()=>{
 if(method === "GET" && url === "/getavatar"){
   const fakestoreapi = await axios.get("https://fakestoreapi.com/products")
 
@@ -42,7 +42,7 @@ if(method === "GET" && url === "/getavatar"){
 
   getavatarurl.data.pipe(fs.createWriteStream(AvaterFolder));
   statuscode = 200
-  response.message = "images gotten"
+  response.message = "Image uploaded successfully"
   res.write(JSON.stringify({statuscode, response}))
   res.end()
 }
