@@ -42,7 +42,7 @@ if(method === "GET" && url === "/getavatar"){
 
   getavatarurl.data.pipe(fs.createWriteStream(AvaterFolder));
   statuscode = 200
-  response.message = "Image uploaded successfully"
+  response.message = "Images uploaded successfully"
   res.write(JSON.stringify({statuscode, response}))
   res.end()
 }
