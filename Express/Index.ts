@@ -4,51 +4,49 @@ const port: number = 2300;
 
 const app: Application = express();
 
-app.use(express.json());
+app.use(express.json())
 
 const db = [
     {
-        id: 1,
+        name: "michael",
+        age: 21,
+        email: "michael@gmail.com"
+    },
+    {
         name: "Daniel",
-        gmail: "daniel@gmail.com"
+        age: 20,
+        email: "daniel@gmail.com"
     },
     {
-        id: 2,
-        name: "Okwudili",
-        gmail: "okwudili@gmail.com"
+        name: "Sylvia",
+        age: 22,
+        email: "sylvia@gmail.com"
     },
-    {
-        id: 3,
-        name: "Francis",
-        gmail: "francis@gmail.com"
-    }
 ]
 
 // Default Get
 
-app.get("/", (req: Request, res:Response)=>{
-    res.send("My first Server");
-    
+
+app.get("/", (req: Request, res: Response)=>{
+    res.send("My first Server")
 })
 
-app.get("/get-all", (req: Request, res: Response)=>{
+
+app.get("/get-all",(req:Request, res: Response)=>{
     res.send(db)
-});
+})
 
-
-// Post 
+// POST 
 
 app.post("/post", (req: Request, res: Response)=>{
-  let newUser= req.body;
-  db.push(newUser);
-  res.send(db)
+    let newUser = req.body
+    db.push(newUser)
+    res.send(db)
 })
+
 
 
 
 app.listen(port, ()=>{
-    console.log("");
-    console.log("Listening on port ", port);
-    
-    
+    console.log("listening on port", port)
 })
