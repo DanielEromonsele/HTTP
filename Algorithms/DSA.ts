@@ -67,11 +67,11 @@ import ProgressBar from "progress";
 
 // MR PETER's ASSIGNMENT
 // Step 1
-const Reversal = (a: string[]) =>{
-    let names : string[] = a;
-    let reverse = names.toString().split("").reverse().join("")
+function Reversal(a: string[]): string {
+    let names: string[] = a;
+    let reverse = names.toString().split("").reverse().join("");
 
-    return reverse
+    return reverse;
 }
 
 // Step 2
