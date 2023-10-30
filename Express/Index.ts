@@ -1,24 +1,28 @@
-import express, {Application, Request, Response} from "express";
-
-const port: number = 2300;
+import express, { Application } from "express";
+import { mainApp } from "./MainApp";
+import cors from "cors"
 
 const app: Application = express();
+app.use(cors())
+app.use(express.json());
+const port: number = 2255;
 
-app.use(express.json())
+mainApp(app);
 
+const server = app.listen(port, () => {
+  console.log();
+  console.log("ready to rock!!!");
+});
 
-app.listen(port, ()=>{
-    console.log("listening on port", port)
-})
+process.on("uncaughtException", (error: Error | any) => {
+  console.log("uncaughtException: ", error);
 
-process.on("uncaughtException", (error: Error|any)=>{
-    console.log("uncaught exception", error);
+  process.exit(1);
+});
+process.on("unhandledRejection", (reason: any) => {
+  console.log("unhandledRejection: ", reason);
 
-    process.exit(1)
-})
-
-process.on("rejectionHandled", (reason: any)=>{
-    console.log("rejectionHandled", reason);
-    
-    process.exit(1)
-})
+  server.close(() => {
+    process.exit(1);
+  });
+});
